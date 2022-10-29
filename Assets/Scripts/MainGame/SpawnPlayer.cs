@@ -2,12 +2,17 @@ using UnityEngine;
 
 public class SpawnPlayer : MonoBehaviour
 {
-    [SerializeField] private Transform player;
-    Transform spawnPlayer;
-    private void Start()
+    public Transform player;
+    public Transform spawnPlayer;
+    bool spawn = false;
+    private void Update()
     {
         spawnPlayer = GameObject.FindGameObjectWithTag("spawnPlayer").GetComponent<Transform>();
-
-        player.position = spawnPlayer.position;
+        spawn = true;
+        if (spawn)
+        {
+            player.position = spawnPlayer.position;
+        }
     }
+
 }
