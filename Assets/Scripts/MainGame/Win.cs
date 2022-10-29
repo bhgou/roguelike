@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
+
 public class Win : MonoBehaviour
 {
     public static Win instance;
@@ -14,9 +16,13 @@ public class Win : MonoBehaviour
     [SerializeField] private DropItem drop;
     [SerializeField] private Image icon;
     [SerializeField] private Text dropText;
+    public  List<GameObject> Enemys;
     private void Start()
     {
-       panel.SetActive(false);
+        panel.SetActive(false);
+
+
+        Enemys.Add(GameObject.FindGameObjectWithTag("Enemy"));
     }
 
     private void Awake()
