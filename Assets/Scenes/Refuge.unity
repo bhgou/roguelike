@@ -15155,7 +15155,7 @@ MonoBehaviour:
   damage: 5
   coolDown: 0
   speedRotate: 15
-  rotate_: 45
+  rotate_: 90
   shot: 0
   RotationWeapon: {fileID: 4101855174467805606}
   Enemy:

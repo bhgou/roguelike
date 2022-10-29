@@ -125,7 +125,7 @@ MonoBehaviour:
   hpBar: {fileID: 9065802004562080649}
   canvas: {fileID: 9065802003227230011}
   speed: 5
-  checkRadius: 10
+  checkRadius: 3
   attackRadius: 0.5
   timeBtwAttack: 0.2
   whatIsPlayer:
