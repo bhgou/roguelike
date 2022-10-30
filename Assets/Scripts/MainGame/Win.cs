@@ -10,19 +10,16 @@ public class Win : MonoBehaviour
     {
         get { return instance; }
     }
-    public int countEnemys;
     [SerializeField] private GameObject panel;
     [SerializeField] private CellManager[] dropItems;
     [SerializeField] private DropItem drop;
     [SerializeField] private Image icon;
     [SerializeField] private Text dropText;
     public  List<GameObject> Enemys;
+    bool giveItem = false;
     private void Start()
     {
         panel.SetActive(false);
-
-
-        Enemys.Add(GameObject.FindGameObjectWithTag("Enemy"));
     }
 
     private void Awake()
@@ -37,14 +34,19 @@ public class Win : MonoBehaviour
             icon.sprite = drop.item.icon;
             dropText.text = drop.name;
         }
-       
-
-
-        if (countEnemys == 0)
+        for (int i = 0; i < Enemys.Count; i++)
         {
-            countEnemys = -1;
+            if (Enemys[i] == null) { Enemys.RemoveAt(i); }
+        }
+       
+    }
+    private void LateUpdate()
+    {
+        if (Enemys.Count == 0 && !giveItem)
+        {
             panel.SetActive(true);
             dropItem();
+            giveItem = true;
         }
     }
     private void dropItem()
