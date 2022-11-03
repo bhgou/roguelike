@@ -40,12 +40,9 @@ public class Enemy : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         animator = GetComponent<Animator>();
         target = GameObject.FindWithTag("Player").GetComponent<Transform>();
+        Win.instance.Enemys.Add(this.gameObject);
     }
-    private void OnDestroy()
-    {
-        Win.instance.countEnemys--;
-    }
-    
+
     private void Update()
     {
         if (!bush)

@@ -34,7 +34,6 @@ public class Weapon : MonoBehaviour
     [SerializeField] private bool haveParticle;
     [SerializeField] private bool further;
 
-    public bool isTarget;
     
     private void Awake()
     {
@@ -63,7 +62,7 @@ public class Weapon : MonoBehaviour
             shot = true;
         }
         if (shot) { StartCoroutine(Rotate()); }
-        if (Input.GetMouseButtonDown(0) && isTarget)
+        if (Input.GetMouseButtonDown(0))
         {
             if (haveParticle) {
                 var s = Instantiate(Particle, spawnParticle.position, Quaternion.identity);
@@ -72,7 +71,7 @@ public class Weapon : MonoBehaviour
             for (int i = 0; i < Enemy.Count; i++)
             {
                 Enemy[i].TakeDamage(damage);
-
+                
             }
         }
         for (int i = 0; i < Enemy.Count; i++)
@@ -80,13 +79,18 @@ public class Weapon : MonoBehaviour
             if (Enemy[i] == null) return;
             if (Enemy[i].Hp <= 0)
             {
-                isTarget = false;
             }
 
         }
+        for(int i = 0; i < Enemy.Count; i++){
+            if(Enemy[i] == null){
+                Enemy.RemoveAt(i);
+            }
+        }
+        
         
     }
-    IEnumerator Rotate()//поворот оружия
+    IEnumerator Rotate()//пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
     {    
         if(MovePlayer.Instance.direction == 1)
         {
@@ -120,7 +124,6 @@ public class Weapon : MonoBehaviour
             Enemy.Add(collision.GetComponent<Enemy>());
 
             LastEnemy = collision.GetComponent<Enemy>();
-            isTarget = true;
 
         }
     }
@@ -130,7 +133,6 @@ public class Weapon : MonoBehaviour
         {
             Enemy.Remove(other.gameObject.GetComponent<Enemy>());
 
-            isTarget = false;
 
         }
 

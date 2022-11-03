@@ -6,7 +6,7 @@ public class ChooseItem : MonoBehaviour
 {
     public void Pressed()
     {
-      SellItem.Sell.item =  GetComponent<InventoryCell>().item;
+        SellItem.Sell.item =  GetComponent<InventoryCell>().item;
     }
 
     

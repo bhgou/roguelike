@@ -20,10 +20,13 @@ public class PushAway : MonoBehaviour
         {
             direction = 1;
         }
-        for (int i = 0; i < Weapon.Instance.Enemy.Count; i++)
-        {
-            if (Weapon.Instance.Enemy[i].GetComponent<Rigidbody2D>() == null) return;
+        if(Weapon.instance != null){
+            for (int i = 0; i < Weapon.Instance.Enemy.Count; i++)
+            {
+                if (Weapon.Instance.Enemy[i] == null) return;
+            }
         }
+       
      
         if (Input.GetMouseButtonDown(0)){
             StartCoroutine(Push());
@@ -32,10 +35,13 @@ public class PushAway : MonoBehaviour
     }
     IEnumerator Push()
     {
-        Weapon.Instance.LastEnemy.bush = true;
-        Weapon.Instance.LastEnemy.GetComponent<Rigidbody2D>().AddForce(Vector2.left * pushPower * direction, ForceMode2D.Impulse);
-        yield return new WaitForSeconds(bushTime);
-        Weapon.Instance.LastEnemy.bush = false;
+        if(Weapon.instance != null && Weapon.Instance.LastEnemy != null){
+             Weapon.Instance.LastEnemy.bush = true;
+             Weapon.Instance.LastEnemy.GetComponent<Rigidbody2D>().AddForce(Vector2.left * pushPower * direction, ForceMode2D.Impulse);
+             yield return new WaitForSeconds(bushTime);
+             Weapon.Instance.LastEnemy.bush = false;
+        }
+       
         
     }
  

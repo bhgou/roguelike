@@ -7,12 +7,15 @@ public class SpawnPlayer : MonoBehaviour
     bool spawn = false;
     private void Update()
     {
-        spawnPlayer = GameObject.FindGameObjectWithTag("spawnPlayer").GetComponent<Transform>();
-        spawn = true;
-        if (spawn)
-        {
-            player.position = spawnPlayer.position;
+        if(spawnPlayer != null){
+            spawnPlayer = GameObject.FindGameObjectWithTag("spawnPlayer").GetComponent<Transform>();
+            spawn = true;
+            if (spawn)
+            {
+                player.position = spawnPlayer.position;
+            }
         }
+        
     }
 
 }

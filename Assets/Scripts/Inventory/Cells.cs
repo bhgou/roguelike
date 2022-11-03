@@ -5,8 +5,6 @@ using UnityEngine.UI;
 public class Cells : MonoBehaviour
 {
     public static Cells _instance;
-
-    
     [SerializeField] private GameObject Cell;
     public List<GameObject> Cells_list;
     public InventoryCell[] equipSlots;
@@ -47,7 +45,7 @@ public class Cells : MonoBehaviour
     }
     private void Update()
     {
-        for (int i = 0; i < CountCells; i++)
+        for (int i = 0; i <= CountCells; i++)
         {
             PlayerPrefs.SetInt("item" + i, idList[i]);
         }
@@ -90,8 +88,8 @@ public class Cells : MonoBehaviour
         }
         if (load)
         {
-            if (Cells_list[free_slot_id].GetComponent<InventoryCell>() == null) return;
             idList.Add(Cells_list[free_slot_id].GetComponent<InventoryCell>().item.id);
+
         }
 
         

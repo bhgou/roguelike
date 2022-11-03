@@ -28,14 +28,17 @@ public class InventoryCell : MonoBehaviour
     }
     public void Remove()
     {
-        for (int i = 0; i < Cells.Instance.idList.Count; i++)
-        {
-            if (Cells.Instance.idList[i] == item.id)
+        if(item != null){
+            for (int i = 0; i < Cells.Instance.idList.Count; i++)
             {
-                PlayerPrefs.DeleteKey("item" + i);
-                Cells.Instance.idList.RemoveAt(i);
+                if (Cells.Instance.idList[i] == item.id)
+                {
+                    PlayerPrefs.DeleteKey("item" + i);
+                    Cells.Instance.idList.RemoveAt(i);
+                }
             }
         }
+        
         item = null;
     }
     

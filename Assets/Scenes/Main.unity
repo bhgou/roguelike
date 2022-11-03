@@ -177,6 +177,11 @@ MonoBehaviour:
     spawnByWall: 1
     gameObject: {fileID: 3132911528818272599, guid: 56dacc32f8863be4796b54952ea0e369, type: 3}
     spawnRoom: 15
+  - minSpawnCount: 1
+    maxSpawnCount: 6
+    spawnByWall: 1
+    gameObject: {fileID: 938168264520653833, guid: fb9209fc852a7f840b11b369b2b4f773, type: 3}
+    spawnRoom: 15
   customRooms: []
   makeIt3d: 0
 --- !u!4 &342790298
@@ -190,37 +195,6 @@ Transform:
   m_LocalPosition: {x: -10.8, y: -15.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &738206169
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 738206170}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &738206170
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 738206169}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.39143, y: -14.701801, z: -4.254753}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1046483023}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -301,7 +275,7 @@ GameObject:
   - component: {fileID: 1046483023}
   - component: {fileID: 1046483022}
   m_Layer: 0
-  m_Name: EnemyManager
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -319,7 +293,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70587ddd1a8a1a343ac7d75b953ad2b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countEnemys: 1
   panel: {fileID: 261675083}
   dropItems:
   - {fileID: 11400000, guid: f73072333a8b7514f9966388ad09d0bd, type: 2}
@@ -328,6 +301,7 @@ MonoBehaviour:
   drop: {fileID: 11400000, guid: f7a3f6436061e6e41bcc4eb4857fee42, type: 2}
   icon: {fileID: 1456072918}
   dropText: {fileID: 1911118484}
+  Enemys: []
 --- !u!4 &1046483023
 Transform:
   m_ObjectHideFlags: 0
@@ -336,11 +310,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1046483021}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.25491428, y: -7.447569, z: -56.752094}
+  m_LocalPosition: {x: -12.646344, y: -22.14937, z: -61.006847}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 738206170}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1164458533
 GameObject:
@@ -1116,6 +1090,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8873430281611600971, guid: e2c383d118c343b4b9a8dba1fd08076a, type: 3}
+      propertyPath: Enemy.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8873430281716100819, guid: e2c383d118c343b4b9a8dba1fd08076a, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1171,5 +1149,5 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -15,13 +15,14 @@ public class Equip : MonoBehaviour
 
     public void EquipItem()
     {
-
-        if (item.isEquip && EqupSlots._instance.freeSlot < 2 && !SellButton.Button.isSell)
-        {
-            EqupSlots._instance.freeSlot++;
-            Cells.Instance.equipSlots[EqupSlots._instance.freeSlot - 1].item = item;
-
+        if(item != null){
+            if (item.isEquip && EqupSlots._instance.freeSlot < 2 && !SellButton.Button.isSell)
+            {
+                EqupSlots._instance.freeSlot++;
+                Cells.Instance.equipSlots[EqupSlots._instance.freeSlot - 1].item = item;
+            }
         }
+       
 
     }
     public void UndoItem()
